@@ -1,0 +1,14 @@
+// main.scss
+// Importation des fichiers SCSS de Bootstrap à partir du dossier vendor
+@import "../../../vendor/twbs/bootstrap/scss/functions";
+@import "../../../vendor/twbs/bootstrap/scss/variables";
+@import "../../../vendor/twbs/bootstrap/scss/mixins";
+@import "../../../vendor/twbs/bootstrap/scss/bootstrap";
+
+// Vous pouvez personnaliser les variables Bootstrap ici
+$primary: #3498db;
+
+// Ajouter vos propres styles personnalisés ici
+body {
+	font-family: Arial, sans-serif;
+}
