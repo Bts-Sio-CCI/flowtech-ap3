@@ -1,3 +1,5 @@
+<title>FlowTech, PC sur mesures</title>
+
 <body class="bg-dark">
     <!-- MODAL INFORMATION PROJETS -->
     <div class="modal fade bg-dark bg-opacity-75" id="modalInformations" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
