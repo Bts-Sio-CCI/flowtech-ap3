@@ -4,6 +4,8 @@
    * Copyright 2011-2024 The Bootstrap Authors
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    */
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -10706,4 +10708,257 @@ textarea.form-control-lg {
 }
 body {
   font-family: Arial, sans-serif;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  /* color of the tracking area */
+}
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* roundness of the scroll thumb */
+  border: 3px solid #ffb525;
+  /* creates padding around scroll thumb */
+}
+.nav-link {
+  color: #1e1e1e;
+}
+@font-face {
+  font-family: magz;
+  src: url(../fonts/magz.otf);
+}
+.magz {
+  font-family: magz;
+  font-size: 1.5rem;
+}
+.header-index {
+  min-height: 100vh;
+  max-height: auto;
+  background-color: #1e1e1e;
+}
+.header-shop {
+  min-height: 50vh;
+  max-height: auto;
+  background-color: #1e1e1e;
+}
+.header-25 {
+  min-height: 25vh;
+  max-height: auto;
+  background-color: #1e1e1e;
+}
+.header-gradient {
+  height: 20em;
+  max-width: 100%;
+  background: #ffb525;
+  background: linear-gradient(180deg, #ffb525 0%, rgba(30, 30, 30, 0) 100%);
+}
+.btn {
+  border-radius: 1.5em;
+}
+.righteous {
+  font-family: "Righteous", sans-serif;
+}
+.header-text {
+  color: #fff;
+  text-shadow: 0 0 15px #fff, 0 0 30px #fff;
+}
+.shop-card-img {
+  background-color: #efefef38;
+  border-radius: 5px 5px 15px 15px;
+  padding: 1.5em;
+  height: 100%;
+}
+.heartbeat {
+  -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+  animation: heartbeat 1.5s ease-in-out infinite both;
+}
+@-webkit-keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+@keyframes heartbeat {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.91);
+    transform: scale(0.91);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.98);
+    transform: scale(0.98);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.87);
+    transform: scale(0.87);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+.mentionslegales a:link {
+  color: #ffb525;
+  text-decoration: underline;
+}
+.dropdown-item:hover {
+  background-color: #6c757d;
+  color: #1e1e1e;
+}
+.form-control::placeholder {
+  /* Changer la couleur du texte du placeholder */
+  color: black;
+  /* Remplacez "red" par la couleur souhaitée */
+}
+#message {
+  display: none;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 6px;
+  width: 350px;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  animation: anime 0.5s ease-out;
+  margin-top: -35px;
+}
+#message P {
+  margin-left: 7px;
+  padding: 7px 0;
+  font-size: 15px;
+}
+.message-form {
+  width: 400px;
+  margin: 50px auto;
+  font-size: 15px;
+}
+.message-form form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+.message-form h2, .message-form .h2 {
+  margin: 0 0 15px;
+}
+/* =================VALIDATOR========================== */
+.invalid {
+  color: red;
+}
+/*Lorsque les exigences sont erronés*/
+.invalid:before {
+  position: relative;
+  left: -7px;
+  content: "❌";
+}
+/*Lorsque les exigences sont respectée */
+.valid {
+  color: green;
+}
+.valid:before {
+  position: relative;
+  left: -7px;
+  content: "✅";
+}
+/* ===================FORMULAIRE======================== */
+.register-form {
+  width: 340px;
+  margin: 50px auto;
+  font-size: 15px;
+}
+.register-form form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+.register-form h2, .register-form .h2 {
+  margin: 0 0 15px;
+}
+/* Animation message */
+@keyframes anime {
+  from {
+    transform: translateY(100px);
+  }
+}
+/* ===================BUTTON ACCUEIL======================== */
+.accueil {
+  width: 340px;
+  margin: auto;
+  font-size: 15px;
+  margin-top: -55px;
+}
+.accueil {
+  margin-bottom: 15px;
+  padding: 30px;
+}
+/* ===================STYLE LOGIN======================== */
+.login-form {
+  width: 340px;
+  margin: 50px auto;
+  font-size: 15px;
+}
+.login-form form {
+  margin-bottom: 15px;
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+.login-form h2, .login-form .h2 {
+  margin: 0 0 15px;
+}
+/* ==================BUTTON========================= */
+.btn-login {
+  min-height: 38px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: bold;
 }
