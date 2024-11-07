@@ -77,4 +77,13 @@ class Home extends BaseController
             view('panier') .
             view('/components/footer');
     }
+
+    public function confirm(): string
+    {
+        return view('/components/header') .
+            view('components/navbar') .
+            view('confirmation') .
+            view('/components/footer');
+
+    }
 }
