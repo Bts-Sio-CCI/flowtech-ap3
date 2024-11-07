@@ -11,4 +11,44 @@ class Home extends BaseController
             view('accueil') .
             view('/components/footer');
     }
+
+    public function boutique(): string
+    {
+        return view('/components/header') .
+            view('/components/navbar') .
+            view('shop') .
+            view('/components/footer');
+    }
+
+    public function configurateur(): string
+    {
+        return view('/components/header') .
+            view('components/navbar') .
+            view('configurateur') .
+            view('/components/footer');
+    }
+
+    public function faq(): string
+    {
+        return view('/components/header') .
+            view('components/navbar') .
+            view('faq') .
+            view('/components/footer');
+    }
+
+    public function cookies(): string
+    {
+        return view('/components/header') .
+            view('components/navbar') .
+            view('politique-cookies') .
+            view('/components/footer');
+    }
+
+    public function clause(): string
+    {
+        return view('/components/header') .
+            view('components/navbar') .
+            view('clause') .
+            view('/components/footer');
+    }
 }

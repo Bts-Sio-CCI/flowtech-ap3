@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FlowTech, PC sur mesures</title>
     <meta name="description" content="FlowTech, surement les meilleurs PC du marché!" />
     <link rel="icon" type="image/x-icon" href="/assets/img/logos/logo-min-rounded.png" />
     <!-- CSS CUSTOM + BOOTSTRAP -->
