@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FlowTech, PC sur mesures</title>
-    <meta name="description" content="FlowTech, surement les meilleurs PC du marché!" />
-    <link rel="icon" type="image/x-icon" href="/assets/img/logos/logo-min-rounded.png" />
-    <!-- CSS CUSTOM + BOOTSTRAP -->
-    <link href="/assets/css/main.css" rel="stylesheet" />
-    <!-- BOOTSTRAP ICONS-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" />
-</head>
-
 <body class="bg-dark">
     <!-- MODAL INFORMATION PROJETS -->
     <div class="modal fade bg-dark bg-opacity-75" id="modalInformations" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -39,7 +24,6 @@
     <!-- HEADER -->
     <header class="header-index">
         <!-- NAVBAR -->
-
         <!--FIN NAVBAR-->
         <div class="header-gradient container">
             <?php if (isset($_GET['success']) && $_GET['success'] == 1) { ?>
