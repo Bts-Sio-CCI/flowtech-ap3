@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+class Boutique extends BaseController
 {
     public function index(): string
     {
         return view('/components/header') .
             view('/components/navbar') .
-            view('accueil') .
+            view('shop') .
             view('/components/footer');
     }
 }

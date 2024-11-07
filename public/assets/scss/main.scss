@@ -14,11 +14,6 @@ $dark: #1e1e1e;
 $light: #efefef;
 $flowtech: #ffb525;
 
-// Ajouter vos propres styles personnalisés ici
-body {
-	font-family: Arial, sans-serif;
-}
-
 // Ajout nouvelle couleur à bootstrap
 $custom-theme-colors: (
 	"flowtech": $flowtech,
@@ -46,7 +41,7 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 
 @font-face {
 	font-family: magz;
-	src: url(../fonts/magz.otf);
+	src: url(/assets/fonts/magz.otf);
 }
 
 .magz {

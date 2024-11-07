@@ -10706,9 +10706,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-body {
-  font-family: Arial, sans-serif;
-}
 body::-webkit-scrollbar {
   width: 5px;
   /* width of the entire scrollbar */
@@ -10728,7 +10725,7 @@ body::-webkit-scrollbar-thumb {
 }
 @font-face {
   font-family: magz;
-  src: url(../fonts/magz.otf);
+  src: url(/assets/fonts/magz.otf);
 }
 .magz {
   font-family: magz;
