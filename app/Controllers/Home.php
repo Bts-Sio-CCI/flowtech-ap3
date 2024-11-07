@@ -51,4 +51,17 @@ class Home extends BaseController
             view('clause') .
             view('/components/footer');
     }
+
+    public function legal(): string
+    {
+        return view('/components/header') .
+            view('components/navbar') .
+            view('legal') .
+            view('/components/footer');
+    }
+
+    public function inscription(): string
+    {
+        return view('inscription');
+    }
 }

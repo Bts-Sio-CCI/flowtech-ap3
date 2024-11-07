@@ -26,7 +26,7 @@
             <div class="d-flex" role="search">
                 <ul class="navbar-nav">
                     <li class="nav-item m-1">
-                        <a class="btn btn-dark fw-bold text-light shadow" href="/configurateur">Configurateur</a>
+                        <a class="btn btn-dark fw-bold text-light shadow" href="/config">Configurateur</a>
                     </li>
                     <li class="nav-item m-1">
                         <a class="btn btn-dark fw-bold text-light shadow" href="/shop">Magasin</a>
