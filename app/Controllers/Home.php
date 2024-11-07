@@ -64,4 +64,17 @@ class Home extends BaseController
     {
         return view('inscription');
     }
+
+    public function login(): string
+    {
+        return view('connexion');
+    }
+
+    public function panier(): string
+    {
+        return view('/components/header') .
+            view('components/navbar') .
+            view('panier') .
+            view('/components/footer');
+    }
 }

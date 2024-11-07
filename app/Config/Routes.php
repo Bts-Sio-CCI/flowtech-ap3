@@ -13,6 +13,8 @@ $routes->get('/policy-cookies', 'Home::cookies');
 $routes->get('/clause', 'Home::clause');
 $routes->get('/legal', 'Home::legal');
 $routes->get('/inscription', 'Home::inscription');
+$routes->get('/login', 'Home::login');
+$routes->get('/panier', 'Home::panier');
 
 /** Components */
 $routes->get('compile/scss_to_css', 'CompilerV2::scss_to_css');
