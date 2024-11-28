@@ -16,6 +16,7 @@ $routes->get('/inscription', 'Home::inscription');
 $routes->get('/login', 'Home::login');
 $routes->get('/panier', 'Home::panier');
 $routes->get('/confirmation', 'Home::confirm');
+$routes->get('/test', 'TestDb::index');
 
 
 /** Components */
