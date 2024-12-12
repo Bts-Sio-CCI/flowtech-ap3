@@ -72,7 +72,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item text-light text-bold" href="/connexion">
+                                        <a class="dropdown-item text-light text-bold" href="/login">
                                             <i class="bi bi-box-arrow-in-right mx-2"></i>Connexion
                                         </a>
                                     </li>
