@@ -18,7 +18,8 @@ $routes->get('/panier', 'Home::panier');
 $routes->get('/confirmation', 'Home::confirm');
 $routes->get('testdb', 'TestDb::index');
 
-$route['login'] = 'login/index';
+$routes->get('/login', 'Login::index');
+$routes->get('/register', 'Register::index');
 
 
 

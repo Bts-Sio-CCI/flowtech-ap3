@@ -8,4 +8,8 @@ class User_model extends CI_Model {
         $query = $this->db->get('Utilisateur');
         return $query->row_array();
     }
+
+    public function insert_user($data) {
+        return $this->db->insert('Utilisateur', $data);
+    }
 }

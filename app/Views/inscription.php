@@ -1,5 +1,3 @@
-<!-- session_start(); -->
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -19,75 +17,67 @@
 </head>
 
 <body>
-    <div class="register-form">
-        <form action="/script/register-script.php" method="post">
-            <h2 class="text-center">Créer un compte</h2>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Prénom" name="Prenom" required="required">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nom" name="Nom" required="required">
-            </div>
-            <div class="form-group">
-                <input type="date" class="form-control" placeholder="Date de naissance" name="dateNaissance" required="required">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Adresse" name="Adresse" required="required">
-            </div>
-            <div class="form-group">
-                <input type="tel" class="form-control" placeholder="Numéro de téléphone" name="numTelephone" required="required">
-            </div>
-            <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" name="email" required="required">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Username" name="login" required="required">
-                <?php
-                if (isset($_SESSION['errors'])) {
-                    foreach ($_SESSION['errors'] as $error) {
-                        echo '<p class="text-danger">' . $error . '</p>';
-                    }
-                    unset($_SESSION['errors']);
-                } elseif (isset($_SESSION['success'])) {
-                    echo '<p class="text-success">' . $_SESSION['success'] . '</p>';
-                    unset($_SESSION['success']); // Supprime le message de succès pour qu'il ne s'affiche qu'une fois
-                }
-                ?>
-            </div>
-            <div class="form-group">
-                <input type="password" id="pass" class="form-control" placeholder="Password" name="pwd" required>
-            </div>
-            <div class="form-group">
-                <label for="sexe">Sexe:</label>
-                <select class="form-control" id="sexe" name="sexe">
-                    <option value="0">Homme</option>
-                    <option value="1">Femme</option>
-                </select>
-            </div>
+<div class="register-form">
+    <form action="<?= base_url('register/register') ?>" method="get">
+        <h2 class="text-center">Créer un compte</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Prénom" name="Prenom" value="<?= set_value('Prenom') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nom" name="Nom" value="<?= set_value('Nom') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" placeholder="Date de naissance" name="dateNaissance" value="<?= set_value('dateNaissance') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Adresse" name="Adresse" value="<?= set_value('Adresse') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="tel" class="form-control" placeholder="Numéro de téléphone" name="numTelephone" value="<?= set_value('numTelephone') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email" name="email" value="<?= set_value('email') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" name="login" value="<?= set_value('login') ?>" required="required">
+            <?php if ($this->session->flashdata('errorMessage')): ?>
+                <p class="text-danger"><?= $this->session->flashdata('errorMessage') ?></p>
+            <?php endif; ?>
+        </div>
+        <div class="form-group">
+            <input type="password" id="pass" class="form-control" placeholder="Password" name="pwd" required>
+        </div>
+        <div class="form-group">
+            <label for="sexe">Sexe:</label>
+            <select class="form-control" id="sexe" name="sexe">
+                <option value="0">Homme</option>
+                <option value="1">Femme</option>
+            </select>
+        </div>
 
-            <div class="form-group">
-                <button type="submit" class="btn btn-flowtech btn-block">Créer</button>
-            </div>
-            <div class="clearfix text-center">
-                <a href="/" class="btn-close-hover btn-danger">Retour à l'accueil</a>
-            </div>
-        </form>
-    </div>
-    <!--======================VERIFICATOR=================================-->
-    <div id="message" class="message-form">
-        <form action="register-actions.php" method="post">
-            <h3>Le mot de passe doit contenir les éléments suivants</h3>
-            <div>
-                <p id="letter" class="invalid">Une lettre minuscule</p>
-                <p id="capital" class="invalid">Une lettre majuscule</p>
-                <p id="number" class="invalid">Un chiffre minimum</p>
-                <p id="length" class="invalid">8 caractères minimum</p>
-            </div>
-        </form>
-    </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-flowtech btn-block">Créer</button>
+        </div>
+        <div class="clearfix text-center">
+            <a href="/" class="btn-close-hover btn-danger">Retour à l'accueil</a>
+        </div>
+    </form>
+</div>
+<!--======================VERIFICATOR=================================-->
+<div id="message" class="message-form">
+    <form action="register-actions.php" method="post">
+        <h3>Le mot de passe doit contenir les éléments suivants</h3>
+        <div>
+            <p id="letter" class="invalid">Une lettre minuscule</p>
+            <p id="capital" class="invalid">Une lettre majuscule</p>
+            <p id="number" class="invalid">Un chiffre minimum</p>
+            <p id="length" class="invalid">8 caractères minimum</p>
+        </div>
+    </form>
+</div>
 
-    <!--======================SCRIPT=================================-->
-    <script src="/script/script-login.js"></script>
+<!--======================SCRIPT=================================-->
+<script src="/script/script-login.js"></script>
 </body>
 
 </html>
