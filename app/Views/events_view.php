@@ -1,47 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Événements et Personnes Présentes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>FlowTech, Connexions</title>
+    <meta name="description" content="FlowTech, surement les meilleurs PC du marché!" />
+    <link rel="icon" type="image/x-icon" href="/assets/img/logos/logo-min-rounded.png" />
+    <!-- CSS CUSTOM + BOOTSTRAP -->
+    <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 
 <body>
+<div class="login-form">
 
-    <h1>Événements et Personnes Présentes</h1>
-
-    <?php if (!empty($events)): ?>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nom de l'événement</th>
-                    <th>Date</th>
-                    <th>Lieu</th>
-                    <th>Heure Début</th>
-                    <th>Heure Fin</th>
-                    <th>Nom de l'Utilisateur</th>
-                    <th>Prénom de l'Utilisateur</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($events as $event): ?>
-                    <tr>
-                        <td><?= $event['nomEvenement']; ?></td>
-                        <td><?= $event['dateEvenement']; ?></td>
-                        <td><?= $event['Lieu']; ?></td>
-                        <td><?= $event['heureDebut']; ?></td>
-                        <td><?= $event['heureFin']; ?></td>
-                        <td><?= $event['utilisateurNom']; ?></td>
-                        <td><?= $event['utilisateurPrenom']; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    <?php else: ?>
-        <p>Aucun événement ou participant trouvé.</p>
+    <?php if ($this->session->flashdata('errorMessage')): ?>
+        <p class="text-center text-danger">
+            <?php echo $this->session->flashdata('errorMessage'); ?>
+        </p>
     <?php endif; ?>
 
+    <form action="<?php echo base_url('login/authenticate'); ?>" method="post">
+        <h2 class="text-center">Connexion</h2>
+        <div class="form-group">
+            <input type="text" class="form-control border-flowtech" placeholder="Username" name="login" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control border-flowtech" placeholder="Password" name="pass" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-flowtech btn-block">Se connecter</button>
+        </div>
+        <div class="text-center">
+            <a href="/" class="btn-close-hover btn-danger">Retour à l'accueil</a>
+        </div>
+    </form>
+    <a href="/inscription" class="btn-dark">Créer un compte</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>

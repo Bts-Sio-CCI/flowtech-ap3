@@ -26,11 +26,11 @@ class Database extends Config
      */
     public array $default = [
         'DSN' => '',
-        'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
-        'database' => '',
-        'DBDriver' => 'sqlsrv',
+        'hostname' => 'service.adam-marzuk.fr',
+        'username' => 'Azmog',
+        'password' => 'Marmar2005',
+        'database' => 'Flowtech',
+        'DBDriver' => 'SQLSRV',
         'DBPrefix' => '',
         'pConnect' => false,
         'DBDebug' => true,
@@ -41,7 +41,7 @@ class Database extends Config
         'compress' => false,
         'strictOn' => false,
         'failover' => [],
-        'port' => 3306,
+        'port' => 1433,
         'numberNative' => false,
         'dateFormat' => [
             'date' => 'Y-m-d',
