@@ -13,14 +13,13 @@ $routes->get('/policy-cookies', 'Home::cookies');
 $routes->get('/clause', 'Home::clause');
 $routes->get('/legal', 'Home::legal');
 $routes->get('/inscription', 'Home::inscription');
-$routes->get('/login', 'Home::login');
 $routes->get('/panier', 'Home::panier');
 $routes->get('/confirmation', 'Home::confirm');
 $routes->get('testdb', 'TestDb::index');
 
-$routes->get('/login', 'Login::index');
+$routes->get('/login', 'Home::login');
 $routes->get('/register', 'Register::index');
-
+$routes->post('/register/register', 'Register::register');
 
 
 /** Components */

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -10,6 +11,7 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream
 <div class="container mt-5">
     <div class="register-form">
         <form action="<?= base_url('register/register') ?>" method="post">
@@ -62,6 +64,53 @@
             </div>
         </form>
     </div>
+=======
+<div class="register-form">
+    <form action="<?= base_url('register/register') ?>" method="post">
+        <h2 class="text-center">Créer un compte</h2>
+        <div class="form-group">
+        <input type="text" class="form-control" placeholder="Prenom" name="Prenom" value="<?= set_value('Prenom') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Nom" name="Nom" value="<?= set_value('Nom') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" placeholder="Date de naissance" name="dateNaissance" value="<?= set_value('dateNaissance') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Adresse" name="Adresse" value="<?= set_value('Adresse') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="tel" class="form-control" placeholder="Numéro de téléphone" name="numTelephone" value="<?= set_value('numTelephone') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email" name="email" value="<?= set_value('email') ?>" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" name="login" value="<?= set_value('login') ?>" required="required">
+            <?php if ($session->getFlashdata('errorMessage')): ?>
+                <p class="text-danger"><?= $session->getFlashdata('errorMessage') ?></p>
+            <?php endif; ?>
+        </div>
+        <div class="form-group">
+            <input type="password" id="pass" class="form-control" placeholder="Password" name="pwd" required>
+        </div>
+        <div class="form-group">
+            <label for="sexe">Sexe:</label>
+            <select class="form-control" id="sexe" name="sexe">
+                <option value="0">Homme</option>
+                <option value="1">Femme</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-flowtech btn-block">Créer</button>
+        </div>
+        <div class="clearfix text-center">
+            <a href="/" class="btn-close-hover btn-danger">Retour à l'accueil</a>
+        </div>
+    </form>
+>>>>>>> Stashed changes
 </div>
 </body>
 
