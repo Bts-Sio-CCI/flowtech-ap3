@@ -9,15 +9,6 @@ class UserModel extends Model
     protected $table = 'Utilisateur';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-<<<<<<< Updated upstream
-        'Prenom', 'Nom', 'dateNaissance', 'Adresse',
-        'numTelephone', 'email', 'login', 'pwd', 'Sexe'
-    ];
-
-    public function insert_user(array $data)
-    {
-        return $this->insert($data);
-=======
         'Prenom', 'Nom', 'dateNaissance', 'Adresse', 
         'numTelephone', 'email', 'login', 'pwd', 'Sexe'
     ];
@@ -42,6 +33,5 @@ class UserModel extends Model
     public function insertUser(array $data)
     {
         return $this->insert($data) !== false;
->>>>>>> Stashed changes
     }
 }
