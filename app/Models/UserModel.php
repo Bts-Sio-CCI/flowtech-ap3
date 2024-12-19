@@ -10,18 +10,18 @@ class UserModel extends Model
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'Prenom', 'Nom', 'dateNaissance', 'Adresse', 
-        'numTelephone', 'email', 'login', 'pwd', 'Sexe'
+        'numTelephone', 'NomUtilisateur', 'MotsDePasse', 'Sexe'
     ];
 
     /**
      * Récupérer un utilisateur par son login
      *
-     * @param string $login
+     * @param string $NomUtilisateur
      * @return array|null
      */
-    public function getUserByLogin(string $login)
+    public function getUserByNomUtilisateur(string $NomUtilisateur)
     {
-        return $this->where('login', $login)->first();
+        return $this->where('NomUtilisateur', $NomUtilisateur)->first();
     }
 
     /**

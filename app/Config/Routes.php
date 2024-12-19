@@ -17,6 +17,10 @@ $routes->get('/panier', 'Home::panier');
 $routes->get('/confirmation', 'Home::confirm');
 $routes->get('testdb', 'TestDb::index');
 
+
+$routes->get('/profil', 'Home::profil');
+
+
 $routes->get('/login', 'Home::login');
 $routes->get('/register', 'Register::index');
 $routes->post('/register/register', 'Register::register');

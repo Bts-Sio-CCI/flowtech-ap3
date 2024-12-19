@@ -3,20 +3,20 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-use App\Models\User_model;
+use App\Models\UserModel;
 
 class Register extends Controller
 {
-    public function index()
-    {
-        helper('form');
+public function index()
+{
+    helper('form'); // Assurez-vous que ce helper est chargé
 
-        $data = [
-            'session' => \Config\Services::session(),
-        ];
-        // Affiche le formulaire d'inscription
-        return view('inscription', $data);
-    }
+    $data = [
+        'session' => \Config\Services::session(),
+    ];
+    return view('inscription', $data);
+}
+
 
     public function register()
     {
@@ -30,9 +30,8 @@ class Register extends Controller
             'dateNaissance'  => 'required|valid_date[Y-m-d]',
             'Adresse'        => 'required|string',
             'numTelephone'   => 'required|regex_match[/^[0-9]{10}$/]',
-            'email'          => 'required|valid_email',
-            'login'          => 'required|alpha_numeric',
-            'pwd' => 'required|min_length[8]|regex_match[/^(?=.*[A-Za-z])(?=.*\d).{8,}$/]',
+            'NomUtilisateur'          => 'required|alpha_numeric',
+            'MotsDePasse' => 'required|min_length[8]|regex_match[/^(?=.*[A-Za-z])(?=.*\d).{8,}$/]',
             'sexe'           => 'required|in_list[0,1]',
         ];
 
@@ -45,12 +44,13 @@ class Register extends Controller
         // Charger le modèle
         $userModel = new UserModel();
 
-        // Vérifier si le login existe déjà
-        $login = $this->request->getPost('login');
-        if ($userModel->getUserByLogin($login)) {
-            $session->setFlashdata('errors', ['login' => 'Ce nom d\'utilisateur existe déjà.']);
+        // Vérifier si le NomUtilisateur existe déjà
+        $NomUtilisateur = $this->request->getPost('NomUtilisateur');
+        if ($userModel->getUserByNomUtilisateur($NomUtilisateur)) {
+            $session->setFlashdata('errors', ['NomUtilisateur' => 'Ce nom d\'utilisateur existe déjà.']);
             return redirect()->to('/inscription')->withInput();
         }
+        
 
         // Préparer les données pour l'insertion
         $data = [
@@ -59,15 +59,14 @@ class Register extends Controller
             'dateNaissance'  => $this->request->getPost('dateNaissance'),
             'Adresse'        => $this->request->getPost('Adresse'),
             'numTelephone'   => $this->request->getPost('numTelephone'),
-            'email'          => $this->request->getPost('email'),
-            'login'          => $login,
-            'pwd'            => password_hash($this->request->getPost('pwd'), PASSWORD_DEFAULT),
+            'NomUtilisateur'          => $NomUtilisateur,
+            'MotsDePasse'            => password_hash($this->request->getPost('MotsDePasse'), PASSWORD_DEFAULT),
             'Sexe'           => $this->request->getPost('sexe'),
         ];
 
         // Insertion dans la base de données
         if ($userModel->insertUser($data)) {
-            $session->set('user', $login);
+            $session->set('user', $NomUtilisateur);
             return redirect()->to('/profil');
         } else {
             $session->setFlashdata('errors', ['database' => 'Une erreur est survenue lors de l\'enregistrement.']);

@@ -36,16 +36,13 @@
             <input type="tel" class="form-control" placeholder="Numéro de téléphone" name="numTelephone" value="<?= set_value('numTelephone') ?>" required="required">
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email" name="email" value="<?= set_value('email') ?>" required="required">
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" name="login" value="<?= set_value('login') ?>" required="required">
+            <input type="text" class="form-control" placeholder="Username" name="NomUtilisateur" value="<?= set_value('NomUtilisateur') ?>" required="required">
             <?php if ($session->getFlashdata('errorMessage')): ?>
                 <p class="text-danger"><?= $session->getFlashdata('errorMessage') ?></p>
             <?php endif; ?>
         </div>
         <div class="form-group">
-            <input type="password" id="pass" class="form-control" placeholder="Password" name="pwd" required>
+            <input type="password" id="pass" class="form-control" placeholder="Password" name="MotsDePasse" required>
         </div>
         <div class="form-group">
             <label for="sexe">Sexe:</label>
