@@ -1,40 +1,50 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+namespace App\Controllers;
 
-class Login extends CI_Controller {
+use CodeIgniter\Controller;
+use App\Models\UserModel;
 
-    public function __construct() {
-        parent::__construct();
-        $this->load->model('User_model');
-        $this->load->library('session');
-    }
+class Login extends Controller
+{
 
     public function index() {
-        $this->load->view('connexion');
+        helper('form'); // Assurez-vous que ce helper est chargé
+
+        $data = [
+            'session' => \Config\Services::session(),
+        ];
+
+        return view('connexion', $data);
     }
 
     public function authenticate() {
-        $user = $this->input->post('login', TRUE);
-        $mdp = $this->input->post('pass', TRUE);
-
+        // Utilisation de la méthode correcte pour récupérer les données POST
+        $user = $this->request->getPost('login');
+        $mdp = $this->request->getPost('pass');
+    
+        // Vérification si les champs sont vides
         if (empty($user) || empty($mdp)) {
-            $this->session->set_flashdata('errorMessage', 'Veuillez saisir un login et un mot de passe.');
-            redirect('login');
+            session()->setFlashdata('errorMessage', 'Veuillez saisir un login et un mot de passe.');
+            return redirect()->to('/login');
         } else {
-            $user_data = $this->User_model->get_user_by_login($user);
-
-            if ($user_data && password_verify($mdp, $user_data['pwd'])) {
-                $this->session->set_userdata('user_data', $user_data);
-
+            // Recherche de l'utilisateur dans la base de données
+            $user_data = $this->User_model->getUserByNomUtilisateur($user);
+    
+            // Vérification du mot de passe
+            if ($user_data && password_verify($mdp, $user_data['MotsDePasse'])) {
+                session()->set('user_data', $user_data);
+    
+                // Redirection en fonction du rôle
                 if ($user_data['Admin'] == 1) {
-                    redirect('admin/userlist');
+                    return redirect()->to('/admin/userlist');
                 } else {
-                    redirect('profil');
+                    return redirect()->to('/profil');
                 }
             } else {
-                $this->session->set_flashdata('errorMessage', 'Nom d\'utilisateur ou mot de passe incorrect.');
-                redirect('login');
+                session()->setFlashdata('errorMessage', 'Nom d\'utilisateur ou mot de passe incorrect.');
+                return redirect()->to('/login');
             }
         }
     }
+    
 }
