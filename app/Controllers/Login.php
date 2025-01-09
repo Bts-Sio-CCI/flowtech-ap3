@@ -8,7 +8,7 @@ class Login extends Controller
 {
 
     public function index() {
-        helper('form'); // Assurez-vous que ce helper est chargé
+        helper(['form', 'session']);
 
         $data = [
             'session' => \Config\Services::session(),
@@ -28,7 +28,7 @@ class Login extends Controller
             return redirect()->to('/login');
         } else {
             // Recherche de l'utilisateur dans la base de données
-            $user_data = $this->User_model->getUserByNomUtilisateur($user);
+            $user_data = $this->UserModel->getUserByNomUtilisateur($user);
     
             // Vérification du mot de passe
             if ($user_data && password_verify($mdp, $user_data['MotsDePasse'])) {

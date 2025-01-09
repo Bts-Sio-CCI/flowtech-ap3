@@ -17,29 +17,49 @@
 </head>
 
 <body>
+<body>
+    <div class="register-form">
+        <?php
+         if (session()->getFlashdata('errors')): ?>
+            <div class="alert alert-danger">
+                <ul>
+                    <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                        <li><?= esc($error) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+        <?php if (session()->has('errors')): ?>
+            <div class="errors">
+                <ul>
+                    <?php foreach (session('errors') as $error): ?>
+                        <li><?= esc($error) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
+
 <div class="register-form">
     <form action="<?= base_url('register/register') ?>" method="post">
         <h2 class="text-center">Créer un compte</h2>
         <div class="form-group">
-        <input type="text" class="form-control" placeholder="Prenom" name="Prenom" value="<?= set_value('Prenom') ?>" required="required">
+        <input type="text" class="form-control" placeholder="Prenom" name="Prenom" required="required">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nom" name="Nom" value="<?= set_value('Nom') ?>" required="required">
+            <input type="text" class="form-control" placeholder="Nom" name="Nom" required="required">
         </div>
         <div class="form-group">
-            <input type="date" class="form-control" placeholder="Date de naissance" name="dateNaissance" value="<?= set_value('dateNaissance') ?>" required="required">
+            <input type="date" class="form-control" placeholder="Date de naissance" name="dateNaissance" required="required">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Adresse" name="Adresse" value="<?= set_value('Adresse') ?>" required="required">
+            <input type="text" class="form-control" placeholder="Adresse" name="Adresse" required="required">
         </div>
         <div class="form-group">
-            <input type="tel" class="form-control" placeholder="Numéro de téléphone" name="numTelephone" value="<?= set_value('numTelephone') ?>" required="required">
+            <input type="tel" class="form-control" placeholder="Numéro de téléphone" name="numTelephone" required="required">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" name="NomUtilisateur" value="<?= set_value('NomUtilisateur') ?>" required="required">
-            <?php if ($session->getFlashdata('errorMessage')): ?>
-                <p class="text-danger"><?= $session->getFlashdata('errorMessage') ?></p>
-            <?php endif; ?>
+            <input type="text" class="form-control" placeholder="Username" name="NomUtilisateur" required="required">
         </div>
         <div class="form-group">
             <input type="password" id="pass" class="form-control" placeholder="Password" name="MotsDePasse" required>
