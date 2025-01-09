@@ -9,7 +9,7 @@ class UserModel extends Model
     protected $table = 'Utilisateur';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'Prenom', 'Nom', 'dateNaissance', 'Adresse', 
+        'Prenom', 'Nom', 'dateNaissance', 'Adresse', 'email',
         'numTelephone', 'NomUtilisateur', 'MotsDePasse', 'Sexe'
     ];
 

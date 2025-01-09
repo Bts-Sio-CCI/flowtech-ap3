@@ -1,5 +1,3 @@
-<!-- Session_Start(); -->
-
 <title>Profil - Flowtech</title>
 
 <style>
