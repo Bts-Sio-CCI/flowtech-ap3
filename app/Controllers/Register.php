@@ -22,7 +22,7 @@ class Register extends Controller
         // Transmettez la donnée à la vue
         return view('inscription', ['Nom' => $Nom]);
     }
-    
+
 
     public function register()
     {
@@ -31,11 +31,17 @@ class Register extends Controller
 
         // Validation des données d'inscription
         $validation = \Config\Services::validation();
-        
+
         // Retourner les erreurs de validation si nécessaire
         if (!$this->validate([
             'NomUtilisateur' => 'required|min_length[3]|max_length[20]',
             'MotsDePasse' => 'required|min_length[6]|max_length[255]',
+            'numTelephone' => [
+                'rules' => 'required|regex_match[/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/]',
+                'errors' => [
+                    'regex_match' => 'Le numéro de téléphone n\'est pas valide.'
+                ]
+            ],
         ])) {
             // Retourne les erreurs de validation au formulaire
             $session = session();
@@ -46,7 +52,7 @@ class Register extends Controller
         // Vérifier si le NomUtilisateur existe déjà
         $NomUtilisateur = $this->request->getPost('NomUtilisateur');
         $user = $userModel->getUserByNomUtilisateur($NomUtilisateur);
-        
+
         // Déboguer pour vérifier si l'utilisateur existe
         log_message('debug', 'Utilisateur trouvé : ' . json_encode($user));
 
@@ -63,6 +69,8 @@ class Register extends Controller
             'NomUtilisateur' => $NomUtilisateur,
             'dateNaissance' => $this->request->getPost('dateNaissance'),
             'Adresse' => $this->request->getPost('Adresse'),
+            'numTelephone' => $this->request->getPost('numTelephone'),
+            'Sexe' => $this->request->getPost('sexe'),
             'MotsDePasse' => password_hash($this->request->getPost('MotsDePasse'), PASSWORD_DEFAULT),
         ];
 
