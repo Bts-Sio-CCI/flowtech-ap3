@@ -8,8 +8,15 @@ class Home extends BaseController
 {
     public function index(): string
     {
+        $session = session();
+    
+        // Transmettre les données nécessaires à la navbar
+        $data = [
+            'user_data' => $session->get('user_data'), // Transmettre les infos utilisateur si connecté
+        ];
+    
         return view('/components/header') .
-            view('/components/navbar') .
+            view('/components/navbar', $data) . // Transmettre $data ici
             view('accueil') .
             view('/components/footer');
     }

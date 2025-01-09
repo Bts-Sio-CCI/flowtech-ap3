@@ -70,13 +70,24 @@ class Register extends Controller
             'dateNaissance' => $this->request->getPost('dateNaissance'),
             'Adresse' => $this->request->getPost('Adresse'),
             'numTelephone' => $this->request->getPost('numTelephone'),
+            'email' => $this->request->getPost('email'),
             'Sexe' => $this->request->getPost('sexe'),
             'MotsDePasse' => password_hash($this->request->getPost('MotsDePasse'), PASSWORD_DEFAULT),
         ];
 
         if ($userModel->insertUser($data)) {
-            $session = session();
-            $session->set('user', $NomUtilisateur);
+            session()->set([
+                'userId' => $userModel->getInsertID(),
+                'Prenom' => $data['Prenom'],
+                'Nom' => $data['Nom'],
+                'NomUtilisateur' => $data['NomUtilisateur'],
+                'email' => $data['email'],
+                'telephone' => $data['numTelephone'],
+                'adresse' => $data['Adresse'],
+                'sexe' => $data['Sexe'],
+                'imgProfil' => null,
+                'isLoggedIn' => true,
+            ]);
             return redirect()->to('/profil');
         } else {
             log_message('error', 'Erreur lors de l\'insertion de l\'utilisateur.');
