@@ -24,6 +24,7 @@ $routes->get('/profil', 'Home::profil');
 $routes->get('/login', 'Login::index');
 $routes->post('/login/authenticate', 'Login::authenticate');
 
+$routes->post('/logout', 'Login::deconnexion');
 
 $routes->get('/register', 'Register::index');
 $routes->post('/register/register', 'Register::register');

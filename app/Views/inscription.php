@@ -29,15 +29,6 @@
                 </ul>
             </div>
         <?php endif; ?>
-        <?php if (session()->has('errors')): ?>
-            <div class="errors">
-                <ul>
-                    <?php foreach (session('errors') as $error): ?>
-                        <li><?= esc($error) ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
 
 
 <div class="register-form">
@@ -79,6 +70,7 @@
             <a href="/" class="btn-close-hover btn-danger">Retour à l'accueil</a>
         </div>
     </form>
+    <a href="/login" class="btn-dark">Se connecter</a>
 </div>
 <!--======================VERIFICATOR=================================-->
 <div id="message" class="message-form">
