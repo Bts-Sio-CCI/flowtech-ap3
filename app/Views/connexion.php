@@ -15,7 +15,6 @@
 
 <body>
     <div class="login-form">
-
         <?php if (isset($_SESSION["errorMessage"]) && !empty($_SESSION["errorMessage"])): ?>
             <p class="text-center text-danger">
                 <?php echo $_SESSION["errorMessage"]; ?>
@@ -23,13 +22,13 @@
             <?php unset($_SESSION["errorMessage"]); ?>
         <?php endif; ?>
 
-        <form action="/script/login-script.php" method="post">
-            <h2 class="text-center">Connexion</h2>
+        <form action="<?= base_url('login/authenticate') ?>" method="post">
+        <h2 class="text-center">Connexion</h2>
             <div class="form-group">
                 <input type="text" class="form-control border-flowtech" placeholder="Username" name="login" required="required">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control border-flowtech" placeholder="Password" name="pass" required="required">
+                <input type="password" class="form-control border-flowtech" placeholder="MotsDePasse" name="pass" required="required">
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-flowtech btn-block">Se connecter</button>
@@ -38,7 +37,7 @@
                 <a href="/" class="btn-close-hover btn-danger">Retour à l'accueil</a>
             </div>
         </form>
-        <a href="/inscription" class="btn-dark">Créer un compte</a>
+        <a href="/register" class="btn-dark">Créer un compte</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

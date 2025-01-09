@@ -77,7 +77,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item text-light text-bold" href="<?= base_url('/inscription') ?>">
+                                        <a class="dropdown-item text-light text-bold" href="<?= base_url('/register') ?>">
                                             <i class="bi bi-box-arrow-in-right mx-2"></i>Inscription
                                         </a>
                                     </li>

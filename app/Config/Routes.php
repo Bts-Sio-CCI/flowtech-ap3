@@ -21,7 +21,10 @@ $routes->get('testdb', 'TestDb::index');
 $routes->get('/profil', 'Home::profil');
 
 
-$routes->get('/login', 'Home::login');
+$routes->get('/login', 'Login::index');
+$routes->post('/login/authenticate', 'Login::authenticate');
+
+
 $routes->get('/register', 'Register::index');
 $routes->post('/register/register', 'Register::register');
 
