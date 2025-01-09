@@ -33,3 +33,5 @@ $routes->post('/register/register', 'Register::register');
 $routes->get('compile/scss_to_css', 'CompilerV2::scss_to_css');
 $routes->get('test', 'TestController::index');
 $routes->get('evenements', 'EventController::index');
+
+$routes->get('/admin', 'AdminStats::index');
