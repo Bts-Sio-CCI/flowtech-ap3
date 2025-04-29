@@ -1,5 +1,3 @@
-<!-- Session_Start(); -->
-
 <title>Profil - Flowtech</title>
 
 <style>
@@ -18,11 +16,11 @@
             <div class="col-lg-6 mx-auto">
                 <p class="lead mb-4 text-light">Votre profile pour gérer vos informations</p>
             </div>
-            <h1 class="diplay-1 text-light">
-                <?php echo "Bienvenue  $prenom $nom"; ?>
+            <h1 class="display-1 text-light">
+                <?php echo "Bienvenue " . session()->get('Prenom') . " " . session()->get('Nom'); ?>
             </h1>
             <div>
-                <img src="/script/imgUser/<?php echo $imgProfilLink; ?>" alt="Photo de profil" class="img-fluid rounded-circle profile-image">
+                <img src="/script/imgUser/<?php echo $imgProfil; ?>" alt="Photo de profil" class="img-fluid rounded-circle profile-image">
             </div>
 
         </div>
@@ -31,13 +29,13 @@
     <ul class="lead mb-4 text-light">
         <!-- J'affiche les variables -->
         <li>Nom:
-            <?php echo $nom ?>
+            <?php echo $Nom ?>
         </li>
         <li>Prenom:
-            <?php echo $prenom ?>
+            <?php echo $Prenom ?>
         </li>
         <li>Pseudonyme:
-            <?php echo $pseudonyme ?>
+            <?php echo $NomUtilisateur ?>
         </li>
         <li>Email:
             <?php echo $email ?>
@@ -66,7 +64,7 @@
 
     <div class="container mt-5">
         <h1 class="text-light mb-4">Liste des commandes</h1>
-        <?php if (count($commandes) > 0): ?>
+        <?php if (!empty($commandes) && count($commandes) > 0): ?>
             <table class="table table-light table-striped">
                 <thead>
                     <tr>
@@ -79,25 +77,18 @@
                 <tbody>
                     <?php foreach ($commandes as $commande): ?>
                         <tr>
-                            <td>
-                                <?php echo $commande['idCommande']; ?>
-                            </td>
-                            <td>
-                                <?php echo $commande['dateCommande']; ?>
-                            </td>
-                            <td>
-                                <?php echo $commande['idUtilisateur']; ?>
-                            </td>
-                            <td>
-                                <?php echo $commande['quantite']; ?> <!-- Correction de la casse ici -->
-                            </td>
+                            <td><?= $commande['id'] ?></td>
+                            <td><?= $commande['date'] ?></td>
+                            <td><?= $commande['produit'] ?></td>
+                            <td><?= $commande['quantite'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         <?php else: ?>
-            <p class="text-light">Aucune commande trouvée.</p>
-        <?php endif; ?>
+        <p>Aucune commande trouvée.</p>
+    <?php endif; ?>
+
     </div>
 
     <a href="/evenement" class="btn btn-primary mt-2">Accéder au evenement</a>

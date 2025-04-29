@@ -40,8 +40,8 @@
                                 <i class="bi bi-person-fill"></i>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end bg-dark bg-opacity-80 border-dark mt-2">
-                                <?php if (isset($_SESSION['user_data'])): ?>
-                                    <!-- Utilisateur connecté -->
+                            <?php if (session()->get('isLoggedIn')) : ?>
+                                <!-- Utilisateur connecté -->
                                     <li>
                                         <a class="dropdown-item text-light text-bold" href="/panier">
                                             <i class="bi bi-cart-fill mx-2"></i>Panier
@@ -52,14 +52,14 @@
                                             <i class="bi bi-person-circle mx-2"></i>Profil
                                         </a>
                                     </li>
-                                    <?php if ($_SESSION['user_data']['Admin'] = 1): ?>
+                                    <?php if (session()->get('Admin') == 1) : ?>
                                         <li>
                                             <a class="dropdown-item text-light text-bold" href="/admin/userlist">
                                                 <i class="bi bi-person-circle mx-2"></i>Admin
                                             </a>
                                         </li>
                                     <?php endif; ?>
-                                    <form method="post" action="/script/authentification.inc.php" id="logoutForm">
+                                    <form method="post" action="/logout" id="logoutForm">
                                         <button type="submit" name="logout" class="dropdown-item text-light text-bold">
                                             <i class="bi bi-box-arrow-in-left mx-2"></i>Déconnexion
                                         </button>
@@ -72,7 +72,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item text-light text-bold" href="/connexion">
+                                        <a class="dropdown-item text-light text-bold" href="/login">
                                             <i class="bi bi-box-arrow-in-right mx-2"></i>Connexion
                                         </a>
                                     </li>
